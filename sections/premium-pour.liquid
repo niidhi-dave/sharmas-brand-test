@@ -1,0 +1,55 @@
+  <section class="product-display">
+    <div class="product-display-container">
+      <h2>{{ section.settings.premium_heading }}</h2>
+      <p>4 cocktails per bottle serve chilled</p>
+  <ul>
+    {% for block in section.blocks %}
+   {% if block.settings.premium_product_image != blank %}
+        <li>
+          <img src="{{ block.settings.premium_product_image.src | img_url: "master" }}" alt="{{ block.settings.product_title }}">
+        </li>
+      {% endif %}
+        
+    {% endfor %}
+  </ul>
+      <button class="btn">{{ section.settings.premium_button_title }}</button>
+    </div>
+    
+  </section>
+{% schema %}
+{
+  "name": "Premium Section",
+  "settings": [
+        {
+          "type": "text",
+          "id": "premium_heading",
+          "label": "Premium heading",
+          "default": "Your Premium heading here"
+        },
+        {
+          "type": "text",
+          "id": "premium_button_title",
+          "label": "Explore our set",
+          "default": "Button title"
+        }
+],
+  "presets" : [
+    {
+      "name" : "Premium Grid"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Premium Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "premium_product_image",
+          "label": "Select Product Image"
+        }
+      ]
+    } 
+  ]
+}
+{% endschema %}

@@ -1,0 +1,43 @@
+<section class="favourite-product">
+  <div class="fav-product-container">
+    <h1>{{ section.settings.main_title }}</h1>
+    <div class="video-wrapper">
+      <div class="product-video">
+        <video width="1088" height="349" autoplay loop muted>
+          <source src="{{ 'product-video.mp4' | file_url }}" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+    <h1>{{ section.settings.video_sub_title }}</h1>
+    <button class="btn">{{ section.settings.button_text }}</button>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Premium Craft Section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "main_title",
+        "label": "Main Title"
+    },
+    {
+        "type": "text",
+        "id": "video_sub_title",
+        "label": "video sub Title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    }
+],
+  "presets" : [
+    {
+      "name" : "Premium Craft"
+    }
+  ]
+}
+{% endschema %}

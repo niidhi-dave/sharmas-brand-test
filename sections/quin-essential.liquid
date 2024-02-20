@@ -1,0 +1,51 @@
+  <section class="our-story-section">
+      <div class="sec-container">
+        <div class="left-wrapper">
+   <img src="{{ section.settings.tag_img.src | img_url: "master" }}" alt="tag">
+          <h2>{{ section.settings.main_heading }}</h2>
+          {{ section.settings.sub_heading }}
+          <button class="btn"> {{ section.settings.button_text_price }}</button>
+        </div>
+        <div class="right-wrapper">
+      <img src="{{ section.settings.our_story_img.src | img_url: "master" }}" alt="Classic Negroni">
+        </div>
+      </div>
+  </section>
+
+{% schema %}
+{
+  "name": "Quin Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "tag_img",
+      "label": "Tag Image"    
+    },
+    {
+      "type": "image_picker",
+      "id": "our_story_img",
+      "label": "Our story Image"    
+    },
+    {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Banner Title"
+    },
+    {
+        "type": "html",
+        "id": "sub_heading",
+        "label": "Banner Title"
+    },
+    {
+      "type": "text",
+      "id": "button_text_price",
+      "label": "Button Text"
+    }
+],
+  "presets" : [
+    {
+      "name" : "Quin Essential"
+    }
+  ]
+}
+{% endschema %}

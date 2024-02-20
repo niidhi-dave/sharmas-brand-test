@@ -1,0 +1,95 @@
+<!-- Grid Section -->
+<section class="product-grid">
+  <div class="product-container">
+    <div class="product-grid-title">
+      <h1>{{ section.settings.product_grid_heading }}</h1>
+    </div>
+    <div class="product-grid-body">
+      <ul>
+        {% for block in section.blocks %}
+          <li class="product-grid-item">
+            <div class="product-grid-header">
+              <div class="product-grid-image">
+                {% if block.settings.product_image != blank %}
+                  <img src="{{ block.settings.product_image.src | img_url: "master" }}" alt="{{ block.settings.product_title }}">
+                {% endif %}
+              </div>
+            </div>
+            <div class="product-grid-item-body">
+              <h2>{{ block.settings.product_title }}</h2>
+              {% if block.settings.product_star != blank %}
+                <div class="rating">
+                  {{ block.settings.product_star | raw }}
+                </div>
+              {% endif %}
+              {% if block.settings.product_meta != blank %}
+                <span class="product-ml">{{ block.settings.product_meta | raw }}</span>
+              {% endif %}
+              <span class="product-description">{{ block.settings.product_description }}</span>
+              <button class="btn">BUY NOW - $99</button>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- // Grid Section -->
+ <div class="separator"></div>
+
+
+{% schema %}
+{
+  "name": "Product Section",
+  "settings": [
+        {
+          "type": "textarea",
+          "id": "product_grid_heading",
+          "label": "product heading",
+          "default": "Your product heading here"
+        }
+],
+  "presets" : [
+    {
+      "name" : "Product Grid"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Product Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Select Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "product Title",
+          "default": "Your product text here"
+        },
+        {
+          "type": "html",
+          "id": "product_star",
+          "label": "product Star",
+          "default": "Your product star here"
+        },
+        {
+          "type": "html",
+          "id": "product_meta",
+          "label": "product meta",
+          "default": "Your product Meta here"
+        },
+        {
+          "type": "textarea",
+          "id": "product_description",
+          "label": "product description",
+          "default": "Your product description here"
+        }
+      ]
+    } 
+  ]
+}
+{% endschema %}

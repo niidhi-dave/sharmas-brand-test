@@ -1,0 +1,66 @@
+<!-- Hero Section -->
+<section class="hero-banner" style=" ">
+      <div class="banner-wrapper">
+        <div class="hero-container">
+          <div class="banner-text-content">
+            <h1>{{ section.settings.banner_title }}</h1>
+            <button class="btn">{{ section.settings.button_text }}</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- // Hero Section -->
+
+ <div class="separator"></div>
+
+  <style>
+    .hero-banner{
+  overflow: hidden;
+  background-size: cover;
+  position: relative;
+}
+    .hero-banner{
+      background-image:url('{{ section.settings.bg_image | img_url: ''}}')
+    }
+
+    @media only screen and (max-width: 480px){
+    .hero-banner{
+      background-image:url('{{ section.settings.bg_image_mobile | img_url: ''}}')
+    }  
+    }
+    
+  </style>
+
+
+{% schema %}
+{
+  "name": "Hero Banner Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Banner Image"    
+    },
+     {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Banner Image (Mobile)"    
+    },
+    {
+        "type": "text",
+        "id": "banner_title",
+        "label": "Banner Title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    }
+],
+  "presets" : [
+    {
+      "name" : "Hero Banner"
+    }
+  ]
+}
+{% endschema %}
