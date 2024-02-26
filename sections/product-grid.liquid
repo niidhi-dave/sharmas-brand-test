@@ -40,9 +40,8 @@
  <div class="separator"></div>
 
 <script>
-  documemt.getElementbyId("#product_title").on("click", function() {
-    $("h1").css("color","red");
-  });
+  var colorText = documemt.getElementbyId("#product_title");
+  colorText.("h1").css("color","red");
 </script>
 
 {% schema %}
